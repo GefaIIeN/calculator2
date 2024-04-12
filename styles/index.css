@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
+#back { 
+    display: block;
+    background-color: #A3DEF1;
+    height: 787 px;
+    width: 820 px;
+    border-top: 5px solid #A3DEF1;
+
+}
+
+#name_of_the_calculator {
+    display: block;
+    height: 105px;
+    width: 693px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    background-color: #6FB3F1;
+    font-size: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+h2 {
+    text-align: left;
+    color: white;
+
+    margin-bottom: 40px;
+
+    margin-top: 40px;
+
+    height: 35px;
+    width: 683px;
+
+    background-color: #6FB3F1;
+    border-style: solid;
+    border-color: #6FB3F1;
+    border-width: 5px;
+
+}
+
+#selecting_operation {
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+}
+#operations_Buttons {
+    display: block;
+    height: 105px;
+    width: 693px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
+}
+button.operation {
+    display: inline-block;	
+	padding: 0 20px;
+	margin: 0 15px 15px 0;
+	height: 32px;
+    border: none;  
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	background-color: #6FB3F1;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;  
+	vertical-align: top;
+}
+button.operation:hover {
+    background-color:white;
+    color: #6FB3F1;
+}
+button.operation:active {
+    background-color:white;
+    color: #6FB3F1;
+}
+button.operation:focus{
+    background-color:white;
+    color: #6FB3F1;
+}
+
+#firstGOnext {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+button.transition {
+    display: inline-block;	
+	padding: 0 20px;
+	margin: 0 85px 15px 0;
+	height: 32px;
+    border: none; 
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	background-color: #6FB3F1;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;  
+	vertical-align: right;
+
+}
+button.transition:hover {
+    background-color:white;
+    color: #6FB3F1;
+}
+button.transition:active {
+    background-color:white;
+    color: #6FB3F1;
+}
+button.transition:focus{
+    background-color:white;
+    color: #6FB3F1;
+}
+
+button {
+    display: block;
+    border: none; 
+    background-color: #A3DEF1;
+    user-select: none;
+	appearance: none;
+}
+
+#title_selectedOperation {
+    text-align: left;
+    color: white;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    height: 35px;
+    width: 683px;
+    background-color: #6FB3F1;
+}
+
+p {
+    font-size: 25px;
+	font-weight: 500;
+    font-family: Arial;
+    color: #6FB3F1;
+}
+
+
+p#additionalTEXT {
+    font-size: 15px;
+	font-weight: 500;
+    font-family: Arial;
+    color: black;
+}
+
+#reset {
+    display: inline-block;	
+	padding: 0 20px;
+	margin: 0 85px 15px 0;
+	height: 32px;
+    border: none; 
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	background-color: #6FB3F1;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;  
+	vertical-align: right;
+}
+
+#reset:hover {
+    background-color:white;
+    color: #6FB3F1;
+}
+#reset:active {
+    background-color:white;
+    color: #6FB3F1;
+}
+#reset:focus{
+    background-color:white;
+    color: #6FB3F1;
+}
