@@ -9,8 +9,14 @@ const OperationType = {
 };
 
 var selectedOperation;
-var selectedOperationElem = document.getElementById("title_selectedOperation");
+var selectedOperationElem = document.getElementById("title_selectedOperation"); 
+var  ExampleText = document.getElementById("text_forExample");
+var  result = document.getElementById("result");
 
+
+const resetOperation = () => {
+  return ((result.innerHTML = ''), (ExampleText.innerHTML = ('Проверяем...')), (document.getElementById('value').value = ('')), (document.getElementById('value_1').value = ''), (document.getElementById('value_2').value = ''))
+};
 
 function handleClickOperation (operation) {
       if (operation == '+') {
@@ -33,58 +39,59 @@ function handleClickOperation (operation) {
         selectedOperationElem.innerText = selectedOperation;
       };
 
+      var Elem1 = document.getElementById('input_value_forNumbers');
+      var Elem2 = document.getElementById('input_value_forBoolean');
+
       switch (selectedOperation) {
         case OperationType.PLUS: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none")
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.MINUS: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none");
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.DIV: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none");
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.MULT: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none");
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.SUMString: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none");
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.SUMArray: {
-        return (document.getElementById('input_value_forNumbers').style.display = "block", document.getElementById('input_value_forBoolean').style.display = "none");
+        return ((Elem1.classList.add('show')), (Elem2.classList.remove('show')), (resetOperation()));
         }
         case OperationType.Rejection : {
-        return (document.getElementById('input_value_forNumbers').style.display = "none", document.getElementById('input_value_forBoolean').style.display = "block");
+        return ((Elem1.classList.remove('show')), (Elem2.classList.add('show')), (resetOperation()));
         }
       };
 };
   
 
+var Elem3 = document.getElementById('input_value');
+
 const transitionTOgettingANDchecking = () => {
+
   if (selectedOperation === undefined) {
-  selectedOperationElem.innerText = ('Выберите операцию');
-  document.getElementById('block').style.display = "none";
-  }
-    display = document.getElementById('input_value').style.display;
-     if (display === "none") {
-      document.getElementById('input_value').style.display = "block";
-      document.getElementById('block').style.display = "block";
-      firstGOnext.innerHTML = "Скрыть";
-     } else {
-      document.getElementById('input_value').style.display = "none";
-      document.getElementById('block').style.display = "block";
-      firstGOnext.innerHTML = "Далее";
-     };  
+    selectedOperationElem.innerText = ('Выберите операцию');
+  };
+
+  if (Elem3.classList.contains('hide')) {
+    Elem3.classList.remove('hide');
+    Elem3.classList.add('show');
+    firstGOnext.innerText = "Скрыть";
+  } else {
+    Elem3.classList.toggle('show');
+    Elem3.classList.toggle('hide');
+    firstGOnext.innerText = "Далее";
+  };  
 
     document.addEventListener("DOMContentLoaded", () => {
       transitionTOgettingANDchecking();
-      handleClickOperation(OperationType.PLUS);
+      handleClickOperation();
     });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  handleClickOperation(OperationType.PLUS);
+  handleClickOperation();
 });
-
-
-document.getElementById('input_value_forNumbers').style.display = "none"
-document.getElementById('input_value_forBoolean').style.display = "none"

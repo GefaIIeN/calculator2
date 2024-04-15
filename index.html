@@ -24,14 +24,14 @@
          </div>
       </div>
       
-      <button id="firstGOnext" class="transition" onclick="transitionTOgettingANDchecking()">Далее<button>
+      <button id="firstGOnext" class="transition" onclick="transitionTOgettingANDchecking()">Далее</button>
 
-      <div id="input_value" style= "display: none">
+      <div id="input_value" class="hide">
          <div>
-            <h2 id="title_selectedOperation"></h2>
-            <div id="block" style="display: block">
-                  <p>Поля для ввода</p>
-                  <div id="input_value_forNumbers" style= "display: none">
+           
+               <h2 id="title_selectedOperation">Выберите операцию</h2>
+                  <div id="input_value_forNumbers" class="hide">
+                     <p>Поля для ввода</p>
                      <div>
                         <p>Значение 1</p>
                         <div>
@@ -45,7 +45,8 @@
                         </div>
                      </div>
                   </div>
-                  <div id="input_value_forBoolean" style= "display: none">
+                  <div id="input_value_forBoolean" class="hide">
+                     <p>Поля для ввода</p>
                      <div>
                         <p>Значение</p>
                         <div>
@@ -57,14 +58,15 @@
                      <p id="additionalTEXT">Здесь будет выводится текст, в случае возникновения проблем, для ознакомления пользователя</p>
                      <p id="text_forExample" style= "display: block">Проверяем...</p>
                   </div>
-            </div>      
-            <div id="calculation_and_output_result">
-               <h2>Результат = <spam id="result"></spam> </h2>
-               <div>
-                  <button id="secondGOnext" class="transition" onclick="executeOperation()">Вычеслить результат</button>
-                  <buton id="reset" class="transition" onclick="resetOperation()">Очистить</buton>
-               </div>
-            </div>
+           
+                  <div id="calculation_and_output_result">
+                     <h2>Результат = <spam id="result"></spam> </h2>
+                     <div>
+                        <button id="secondGOnext" class="transition" onclick="executeOperation()">Вычеслить результат</button>
+                        <buton id="reset" class="transition" onclick="resetOperation()">Очистить</buton>
+                     </div>
+                  </div>
+            
          </div>
       </div>
       

@@ -1,4 +1,3 @@
-var  ExampleText = document.getElementById("text_forExample");
 
 const getValue = function() {
     const value = document.getElementById("value");
@@ -23,7 +22,7 @@ const getValue2 = function() {
     if (value2 != null) {
       return value2;
     } else {
-        ExampleText.innerHTML = "Вторая переменная не обнаружена";
+        ExampleText.innerHTML = "Вторая переменная не обнаружена"; 
     };
 };
 
@@ -54,11 +53,13 @@ var forSimpleOperationWhithNumber = () => {
     const v1 = getValue1().value;
     if (checkNumberValue(v1)) {
         ExampleText.innerHTML = ('Первая переменная должна быть числом');
+        result.innerHTML = ('Ошибка');
       return;
     }
     const v2 = getValue2().value;
     if (checkNumberValue(v2)) {
         ExampleText.innerHTML = ('Вторая переменная должна быть числом');
+        result.innerHTML = ('Ошибка');
       return;
     }
     return ((ExampleText.innerHTML = ('Проблем нет')), (v1_value = parseInt(v1)), (v2_value = parseInt(v2)));
@@ -73,10 +74,12 @@ var forOperationWhithArray = () => {
    
     if (FIRSTmassive1.some(checkNumberValue)) {
         ExampleText.innerHTML = ('Первая переменная должна содержать только числа');
+        result.innerHTML = ('Ошибка');
       return;
     };
     if (FIRSTmassive2.some(checkNumberValue)) {
         ExampleText.innerHTML = ('Вторая переменная должна содержать только числа');
+        result.innerHTML = ('Ошибка');
       return;
     }; 
   
@@ -93,6 +96,7 @@ var forOperationWhithFalseandTrue = () => {
 
     if (value_Boolean == "notFalse_True") {
         ExampleText.innerHTML = ('Переменная должна быть false or true');
+        result.innerHTML = ('Ошибка');
       return;
     };
 

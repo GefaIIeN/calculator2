@@ -13,6 +13,21 @@ body {
 
 }
 
+#input_value.show { 
+    display: block;
+    background-color: #A3DEF1;
+    height: 787 px;
+    width: 820 px;
+    border-top: 5px solid #A3DEF1;
+}
+#input_value.hide { 
+    display: none;
+    background-color: #A3DEF1;
+    height: 787 px;
+    width: 820 px;
+    border-top: 5px solid #A3DEF1;
+}
+
 #name_of_the_calculator {
     display: block;
     height: 105px;
@@ -48,6 +63,14 @@ h2 {
     border-color: #6FB3F1;
     border-width: 5px;
 
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 #selecting_operation {
@@ -128,13 +151,6 @@ button.transition:focus{
     color: #6FB3F1;
 }
 
-button {
-    display: block;
-    border: none; 
-    background-color: #A3DEF1;
-    user-select: none;
-	appearance: none;
-}
 
 #title_selectedOperation {
     text-align: left;

@@ -1,4 +1,4 @@
-var  result = document.getElementById("result");
+
 
 const operSum = (v1, v2) => {
     return v1+v2;
@@ -18,7 +18,7 @@ const operSumString = (v1, v2) => {
 const operSumArray = (massive1, massive2) => {
     sum = [];
     for (let i = 0; i < Math.max(massive1.length, massive2.length); i++) {
-      sum.push ((massive1[i] || 0) + (massive2[i] || 0));
+      sum.push ((massive1[i] || 0) + (massive2[i] || 0)); 
     };
     return sum;
 };
@@ -60,6 +60,3 @@ const executeOperation = () => {
     };
 };
 
-const resetOperation = () => {
-    return ((result.innerHTML = ''), (ExampleText.innerHTML = ('Проверяем...')), (document.getElementById('value').value = ('')), (document.getElementById('value_1').value = ''), (document.getElementById('value_2').value = ''))
-}
