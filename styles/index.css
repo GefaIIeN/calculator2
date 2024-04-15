@@ -4,6 +4,30 @@ body {
     margin-right: 400px;
 }
 
+.group {
+    margin: 10px 5px;
+}
+
+.group .showFields {
+    display: block;
+}
+.group .hideFields {
+    display: none;
+}
+
+.group .btnsGroup {
+    display: flex;
+
+}
+
+.group .specClass {
+    margin: 15px;
+}
+
+.group .field {
+    display: flex;
+}
+
 #back { 
     display: block;
     background-color: #A3DEF1;
