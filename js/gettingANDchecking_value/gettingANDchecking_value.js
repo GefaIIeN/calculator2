@@ -1,5 +1,5 @@
 
-const getValue = function() {
+//const getValue = function() {
     const value = document.getElementById("value");
     if (value != null) {
       return value;

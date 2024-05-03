@@ -5,75 +5,88 @@
    <title>КАЛЬКУЛЯТОР</title>
    <link rel="stylesheet" href="styles/index.css" />
 </head>
- <body>
-  <div id="back">
-      <div id="name_of_the_calculator">
-         <h1>КАЛЬКУЛЯТОР</h1>
-      </div>
+   <body>
+      <h1>КАЛЬКУЛЯТОР</h1>
 
-      <div id="selecting_operation">
-      <h2>ВЫБЕРИТЕ НУЖНУЮ ОПЕРАЦИЮ</h2>
-         <div id="operations_Buttons">
-            <button id="clojenie" class="operation" onclick="handleClickOperation('+')">Сложение чисел</button>
-            <button id="vichitanie" class="operation" onclick="handleClickOperation('-')">Вычитание чисел</button>
-            <button id="ymnojenie" class="operation" onclick="handleClickOperation('*')">Умножение чисел</button>
-            <button id="delenie" class="operation" onclick="handleClickOperation('/')">Деление чисел</button>
-            <button id="clojenie_strock" class="operation" onclick="handleClickOperation('+a')">Сложение строк</button>
-            <button id="clojenie_massivov" class="operation" onclick="handleClickOperation('+123')">Посимвольное сложение массивов</button>
-            <button id="otricanie_znacheniya" class="operation" onclick="handleClickOperation('not')">Отрицание значения</button>
+      <div class="group">
+         <h2>ВЫБЕРИТЕ НУЖНУЮ ОПЕРАЦИЮ</h2>
+         <div id="operations">
+            <button id="plus" class="operation">Сложение чисел</button>
+            <button id="minus" class="operation">Вычитание чисел</button>
+            <button id="multiply" class="operation">Умножение чисел</button>
+            <button id="divide" class="operation">Деление чисел</button>
+            <button id="plusString" class="operation">Сложение строк</button>
+            <button id="plusArray" class="operation">Посимвольное сложение массивов</button>
+            <button id="boolOper" class="operation">Отрицание значения</button>
+         </div>
+         
+         <div class="groupCurrentOper">
+            <div>ВЫБРАННАЯ ОПЕРАЦИЯ:</div><div id="currentOper"></div>
          </div>
       </div>
       
-      <button id="firstGOnext" class="transition" onclick="transitionTOgettingANDchecking()">Далее</button>
-
-      <div id="input_value" class="hide">
+      <div class="groupSpecClass">
+         <p>Поля для ввода</p>
          <div>
-           
-               <h2 id="title_selectedOperation">Выберите операцию</h2>
-                  <div id="input_value_forNumbers" class="hide">
-                     <p>Поля для ввода</p>
-                     <div>
-                        <p>Значение 1</p>
-                        <div>
-                           <input id="value_1">
-                        </div>
-                     </div>
-                     <div>
-                        <p>Значение 2</p>
-                        <div>
-                           <input id="value_2">
-                        </div>
-                     </div>
-                  </div>
-                  <div id="input_value_forBoolean" class="hide">
-                     <p>Поля для ввода</p>
-                     <div>
-                        <p>Значение</p>
-                        <div>
-                           <input id="value">
-                        </div>
-                     </div>
-                  </div>
+            <div id="numberFields" class="showFields">
+               <div class="field">
+                  <div>Поле 1: </div>
                   <div>
-                     <p id="additionalTEXT">Здесь будет выводится текст, в случае возникновения проблем, для ознакомления пользователя</p>
-                     <p id="text_forExample" style= "display: block">Проверяем...</p>
+                     <input id="value_1">
                   </div>
-           
-                  <div id="calculation_and_output_result">
-                     <h2>Результат = <spam id="result"></spam> </h2>
-                     <div>
-                        <button id="secondGOnext" class="transition" onclick="executeOperation()">Вычеслить результат</button>
-                        <buton id="reset" class="transition" onclick="resetOperation()">Очистить</buton>
-                     </div>
+               </div>
+               <div class="field">
+                  <div>Поле 2: </div>
+                  <div>
+                     <input id="value_2">
                   </div>
+               </div>
+            </div>
+
+            <div id="stringFields" class="hideFields">
+               <div class="field">
+                  <div>Поле 1</div>
+                  <div>
+                     <input id="value_1">
+                  </div>
+               </div>
+               <div  class="field">
+                  <div>Поле 2</div>
+                  <div>
+                     <input id="value_2">
+                  </div>
+               </div>
+            </div>
             
+            <div id="booleanFields" class="hideFields">
+               <div class="field">
+                  <div>Поле 1</div>
+                  <div>
+                     <input id="value_1">
+                  </div>
+               </div>
+            </div>
+
          </div>
       </div>
-      
+
+      <div id="group">
+         <div>Результат:<span id="result"></span></div>
+         <div class="btnsGroup">
+            <button id="executeBtn">Вычислить результат</button>
+            <button id="resetBtn">Очистить</button>   
+         </div>         
+      </div>      
    </div>
   
-   <script src="js/selecting_operation/selecting_operation.js"></script>
-   <script src="js/gettingANDchecking_value/gettingANDchecking_value.js"></script>
+   <script src="js/jquery-3.7.1.js"></script>
+   <script src="js/index.js"></script>
+   <script src="js/gettingANDchecking_value/getValue.js"></script>
+
+
+   <!--<script src="js/selecting_operation/selecting_operation.js"></script>
+   <script src="js/gettingANDchecking_value/gettingANDchecking_value.js"></script> -->
+
    <script src="js/calculation_and_output_result/calculation_and_output_result.js"></script>
    
  </body>
