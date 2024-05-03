@@ -51,8 +51,3 @@ function gettingValues() {
         );
     };
 };
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    handleClickOperation();
-  });
