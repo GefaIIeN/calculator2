@@ -16,7 +16,7 @@ var  result = document.getElementById("result");
 
 
 const resetOperation = () => {
-  return ((result.innerHTML = ''), (ExampleText.innerHTML = ('Проверяем...')), ($("#value").html("")), ($("#value_1").html("")), ($("#value_2").html("")))
+  return ((result.innerHTML = ''), (ExampleText.innerHTML = ('Проверяем...')), ($("#value_1").html("")), ($("#value_2").html("")))
 };
 
  
@@ -39,7 +39,7 @@ const resetOperation = () => {
 
       $("#title_selectedOperation").html(selectedOperation);
 
-      var Elem1 = document.getElementById('input_value_forNumbers');
+      var Elem1 = document.getElementById('numberFields');
       var Elem2 = document.getElementById('input_value_forBoolean');
 
       switch (selectedOperation) {
