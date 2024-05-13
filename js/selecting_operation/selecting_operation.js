@@ -97,7 +97,7 @@ function Select() {
       this.operationPlus = new OperationPlus();
       this.operationMinus = new OperationMinus();
       this.operationMultiply = new OperationMultiply();
-      this.operationDevide = new OperationDevide();
+      this.operationDevide = new OperationDivide();
       this.operationPlusArray = new OperationPlusArray();
       this.operationPlusString = new OperationPlusString();
       this.operationBoolean = new OperationBoolean();
