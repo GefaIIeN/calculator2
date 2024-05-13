@@ -97,7 +97,7 @@ function Select() {
       this.operationPlus = new OperationPlus();
       this.operationMinus = new OperationMinus();
       this.operationMultiply = new OperationMultiply();
-      this.operationDevide = new OperationDivide();
+      this.operationDivide = new OperationDivide();
       this.operationPlusArray = new OperationPlusArray();
       this.operationPlusString = new OperationPlusString();
       this.operationBoolean = new OperationBoolean();
@@ -114,7 +114,47 @@ function Select() {
       this.selectedOperation = this.operationMinus;
 
       this.selectedOperation.init();
-      if (this.selectedOperation.setFields(['3', '2'])) {
+      if (this.selectedOperation.setValues()) {
+          const res = this.selectedOperation.execute();
+          console.log(res);
+      };
+
+      this.selectedOperation = this.operationMultiply;
+
+      this.selectedOperation.init();
+      if (this.selectedOperation.setValues()) {
+          const res = this.selectedOperation.execute();
+          console.log(res);
+      };
+
+      this.selectedOperation = this.operationDivide;
+
+      this.selectedOperation.init();
+      if (this.selectedOperation.setValues()) {
+          const res = this.selectedOperation.execute();
+          console.log(res);
+      };
+
+      this.selectedOperation = this.operationPlusArray;
+
+      this.selectedOperation.init();
+      if (this.selectedOperation.setValues()) {
+          const res = this.selectedOperation.execute();
+          console.log(res);
+      };
+
+      this.selectedOperation = this.operationPlusString;
+
+      this.selectedOperation.init();
+      if (this.selectedOperation.setValues()) {
+          const res = this.selectedOperation.execute();
+          console.log(res);
+      };
+
+      this.selectedOperation = this.operationBoolean;
+
+      this.selectedOperation.init();
+      if (this.selectedOperation.setValues()) {
           const res = this.selectedOperation.execute();
           console.log(res);
       };

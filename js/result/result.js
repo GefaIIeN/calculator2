@@ -1,6 +1,8 @@
 
 $("#executeBtn").click(function executeOperation() { 
 
+  console.log (selectedOperation);
+
     switch (selectedOperation) {
 
         case OperationType.PLUS: {
