@@ -106,7 +106,7 @@ function Select() {
       this.selectedOperation = this.operationPlus;
 
       this.selectedOperation.init();
-      if (this.selectedOperation.setFields(['3', '2'])) {
+      if (this.selectedOperation.setValues()) {
           const res = this.selectedOperation.execute();
           console.log(res);
       };
