@@ -4,19 +4,25 @@ function OperationMinus() {
     this._id = 'minus';
     this._title = 'Операция вычитания';
 
-    this.init = () => {
-        console.log('init operation minus');
-    }
-
     this.getValues = () => {
-        input_1 = $("#value_1");
-        input_2 = $("#value_2");
-        this._values[0] = Number(input_1);
-        this._values[1] = Number(input_2);
+        let values = [];
+        values[0] = $("#value_1").val();
+        values[1] = $("#value_2").val();
+        return values;
     }
 
     this._checkValues = (values) => {
-        if ((this._values[0] != '') && (this._values[1] != '')) {
+        const value0 = ''+values[0]
+        const value1 = ''+values[1]
+        if ((value0 != '') && (value1 != '')) {
+            const numValue0 = parseInt(value0);
+            if (!numValue0) {
+                return false;
+            }
+            const numValue1 = parseInt(value1);
+            if (!numValue1) {
+                return false;
+            }
             return true;
         }
         return false;
@@ -32,7 +38,7 @@ function OperationMinus() {
 
     this.execute = () => {
         if (this._values.length == 2) {
-            return this._values[0] - this._values[1];
+            return parseInt(this._values[0]) - parseInt(this._values[1]);
         }
         return null;
     }
