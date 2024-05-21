@@ -6,8 +6,8 @@ function Select(app) {
   this.operations[this.app.OperationType.Minus] = new OperationMinus();
   this.operations[this.app.OperationType.Mult] = new OperationMultiply();
   this.operations[this.app.OperationType.Div] = new OperationDivide();
-  this.operations[this.app.OperationType.SumString] = new OperationPlusArray();
-  this.operations[this.app.OperationType.SumArray] = new OperationPlusString();
+  this.operations[this.app.OperationType.SumString] = new OperationPlusString();
+  this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
   this.operations[this.app.OperationType.Rejection] = new OperationBoolean();
 
   this.jqResetBtn = $('#resetBtn');
@@ -101,10 +101,13 @@ function Select(app) {
       console.log (this.selectedOperation);
       if (this.activeOperation.setValues(this.activeOperation.getValues())) {
         const res = this.activeOperation.execute();
+        console.log(this.activeOperation.getValues());
         console.log(res);
         this.jqResult.html(res);
       } else {
         console.log('wrong value');
+        console.log(this.activeOperation.getValues());
+        console.log(this.activeOperation.setValues(this.activeOperation.getValues()))
         this.jqResult.html('wrong value');
       }
     });

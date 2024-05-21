@@ -5,13 +5,16 @@ function OperationPlusString() {
     this._title = 'Операция Сложение строк';
 
     this.getValues = () => {
-        input_1 = $("#value_1");
-        input_2 = $("#value_2");
-
+        let values = [];
+        values[0] = $("#value_3").val();
+        values[1] = $("#value_4").val();
+        return values;
     }
 
     this._checkValues = (values) => {
-        if ((values[0] != '') && (values[1] != '')) {
+        const value0 = '' + values[0]
+        const value1 = '' + values[1]
+        if ((value0 != '') && (value1 != '')) {
             return true;
         }
         return false;
@@ -27,7 +30,7 @@ function OperationPlusString() {
 
     this.execute = () => {
         if (this._values.length == 2) {
-            return this._values[0] + this._values[1];
+            return (this._values[0]) + (this._values[1]);
         }
         return null;
     }

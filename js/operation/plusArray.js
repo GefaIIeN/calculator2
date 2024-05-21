@@ -6,18 +6,41 @@ function OperationPlusArray() {
     this._values2 = [];
 
     this.getValues = () => {
-        input_1 = (($("#value_1")).split(","));
-        input_2 = (($("#value_2")).split(","));
+        let values = [];
+        let values2 = [];
+
+        this._values = $("#value_3").split(",").val();
+        this._values2 = $("#value_4").split(",").val();
+
         this._values.filter(element => {
-        return Number(element)
-        })
+            return parseInt(element)
+            })
         this._values2.filter(element => {
-            return Number(element)
-        })
+           return parseIntr(element)
+            })
+
+        return (values, values2)
     }
 
+
     this._checkValues = (values, values2) => {
-        if ((values[0] != '') && (values2[0] != '')) {
+        const value0 = ''+values[0]
+        const value1 = ''+values2[0]
+
+        if ((value0 != '') && (value1 != '')) {
+            const numValue = this._values.filter(element => {
+                return parseInt(element)
+            });
+            if (!numValue) {
+                return false;
+            }
+
+            const numValue1 = this._values2.filter(element => {
+                return parseIntr(element);
+            });
+            if (!numValue1) {
+                return false;
+            }
             return true;
         }
         return false;
@@ -31,11 +54,11 @@ function OperationPlusArray() {
         return false;
     }
 
-    this.execute = (values, values2) => {
+    this.execute = () => {
 
             this.sum = [];
             for (let i = 0; i < Math.max(this._values.length, this._values2.length); i++) {
-              sum.push ((values[i] || 0) + (values2[i] || 0)); 
+              sum.push ((this._values[i] || 0) + (this._values2[i] || 0)); 
             };
             return this.sum;
         }
