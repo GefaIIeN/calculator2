@@ -4,6 +4,10 @@ function OperationMinus() {
     this._id = 'minus';
     this._title = 'Операция вычитания';
 
+    this.init = () => {
+        console.log('init operation minus');
+    }
+
     this.getValues = () => {
         input_1 = $("#value_1");
         input_2 = $("#value_2");
@@ -12,7 +16,7 @@ function OperationMinus() {
     }
 
     this._checkValues = (values) => {
-        if ((values[0] != '') && (values[1] != '')) {
+        if ((this._values[0] != '') && (this._values[1] != '')) {
             return true;
         }
         return false;

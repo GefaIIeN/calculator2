@@ -1,164 +1,114 @@
-function Select() {
+function Select(app) {
+  this.app = app;
 
-  const OperationType = {
-      PLUS: 'Сложение',
-      MINUS: 'Вычитание',
-      MULT: 'Умножение',
-      DIV: 'Деление',
-      SUMString: 'Сложение строк',
-      SUMArray: 'Сложение массивов',
-      Rejection: 'Отрицание значения'
-    };
-    
-    function resetOperation() {
-      $('#resetBtn').click( () => {
-      $("#result").html("");
-      $("#value_1").html("");
-      $("#value_2").html("");
-      });
-    };
-    
-    let selectedOperation = OperationType.PLUS;
-    $("#currentOper").html(selectedOperation);
-    
-    function handleClickOperation () {
-          $('#plus').on('click', (e) => {
-            selectedOperation = OperationType.PLUS;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").show();
-            $("#stringFields").hide();
-            $("#booleanFields").hide();
-            resetOperation();
-    
-          });
-    
-          $('#minus').on('click', (e) => {
-            selectedOperation = OperationType.MINUS;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").show();
-            $("#stringFields").hide();
-            $("#booleanFields").hide();
-            resetOperation();
-          });
-    
-          $('#multiply').on('click', (e) => {
-            selectedOperation = OperationType.MULT;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").show();
-            $("#stringFields").hide();
-            $("#booleanFields").hide();
-            resetOperation();
-          });
-    
-          $('#divide').on('click', (e) => {
-            selectedOperation = OperationType.DIV;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").show();
-            $("#stringFields").hide();
-            $("#booleanFields").hide();
-            resetOperation();
-          });
-    
-          $('#plusString').on('click', (e) => {
-            selectedOperation = OperationType.SUMString;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").hide();
-            $("#stringFields").show();
-            $("#booleanFields").hide();
-            resetOperation();
-          });
-    
-          $('#plusArray').on('click', (e) => {
-            selectedOperation = OperationType.SUMArray;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").show();
-            $("#stringFields").hide();
-            $("#booleanFields").hide();
-            resetOperation();
-          });
-    
-          $('#boolOper').on('click', (e) => {
-            selectedOperation = OperationType.Rejection;
-            $("#currentOper").html(selectedOperation);
-            $("#numberFields").hide();
-            $("#stringFields").hide();
-            $("#booleanFields").show();
-            resetOperation();
-          });
-    };
+  this.operations = {};
+  this.operations[this.app.OperationType.Plus] = new OperationPlus();
+  this.operations[this.app.OperationType.Minus] = new OperationMinus();
+  this.operations[this.app.OperationType.Mult] = new OperationMultiply();
+  this.operations[this.app.OperationType.Div] = new OperationDivide();
+  this.operations[this.app.OperationType.SumString] = new OperationPlusArray();
+  this.operations[this.app.OperationType.SumArray] = new OperationPlusString();
+  this.operations[this.app.OperationType.Rejection] = new OperationBoolean();
 
-  console.log('create');
+  this.jqResetBtn = $('#resetBtn');
+  this.jqExecuteBtn = $("#executeBtn");
+  this.jqResult = $('#result');
+  this.jqValue_1 = $('#value_1');
+  this.jqValue_2 = $('#value_2');
+  this.jqNumberFields = $('#numberFields');
+  this.jqStringFields = $('#stringFields');
+  this.jqBooleanFields = $('#booleanFields');
+  
+  this.jqPlus = $('#plus');
+  this.jqMinus = $('#minus'); 
+  this.jqMultiply = $('#multiply');
+  this.jqDivide = $('#divide');
+  this.jqPlusString = $('#plusString');
+  this.jqPlusArray = $('#plusArray');
+  this.jqBoolOper = $('#boolOper');
+
+
+  this.activeOperation = null;
+
+  this.reset = () => {
+    this.jqResult.val("");
+    this.jqValue_1.val("");
+    this.jqValue_2.val("");
+  }
+
+  this.changeOpearion = (newSelectedOperation) => {
+      this.selectedOperation = newSelectedOperation;
+      $("#currentOper").html(this.selectedOperation);
+
+      if ((this.selectedOperation == this.app.OperationType.Plus) ||
+      (this.selectedOperation == this.app.OperationType.Minus) ||
+      (this.selectedOperation == this.app.OperationType.Mult) ||
+      (this.selectedOperation == this.app.OperationType.Div)) {
+        this.jqNumberFields.show();
+        this.jqStringFields.hide();
+        this.jqBooleanFields.hide();
+      }
+
+      if ((this.selectedOperation == this.app.OperationType.SumString) ||
+      this.selectedOperation == this.app.OperationType.SumArray) {
+        this.jqNumberFields.hide();
+        this.jqStringFields.show();
+        this.jqBooleanFields.hide();
+      }
+
+      if (this.selectedOperation == this.app.OperationType.Rejection) {
+        this.jqNumberFields.hide();
+        this.jqStringFields.hide();
+        this.jqBooleanFields.show();
+      }
+
+      this.activeOperation = this.operations[this.selectedOperation];
+      this.activeOperation.init();
+
+      this.reset();
+  }
 
   this.init = () => {
-      console.log('init');
-      
-      handleClickOperation();
+    console.log('init');
 
-      this.operationPlus = new OperationPlus();
-      this.operationMinus = new OperationMinus();
-      this.operationMultiply = new OperationMultiply();
-      this.operationDivide = new OperationDivide();
-      this.operationPlusArray = new OperationPlusArray();
-      this.operationPlusString = new OperationPlusString();
-      this.operationBoolean = new OperationBoolean();
+    this.jqResetBtn.click(() => {
+      this.reset();
+    });
 
+    this.jqPlus.click(() => {
+      this.changeOpearion(this.app.OperationType.Plus)
+    });
+    this.jqMinus.click(() => {
+      this.changeOpearion(this.app.OperationType.Minus)
+    });
+    this.jqMultiply.click(() => {
+      this.changeOpearion(this.app.OperationType.Mult)
+    });
+    this.jqDivide.click(() => {
+      this.changeOpearion(this.app.OperationType.Div)
+    });
+    this.jqPlusString.click(() => {
+      this.changeOpearion(this.app.OperationType.SumString)
+    });
+    this.jqPlusArray.click(() => {
+      this.changeOpearion(this.app.OperationType.SumArray)
+    });
+    this.jqBoolOper.click(() => {
+      this.changeOpearion(this.app.OperationType.Rejection)
+    });
 
-      this.selectedOperation = this.operationPlus;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationMinus;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationMultiply;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationDivide;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationPlusArray;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationPlusString;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
-
-      this.selectedOperation = this.operationBoolean;
-
-      this.selectedOperation.init();
-      if (this.selectedOperation.setValues()) {
-          const res = this.selectedOperation.execute();
-          console.log(res);
-      };
+    this.jqExecuteBtn.click(() => {
+      console.log (this.selectedOperation);
+      if (this.activeOperation.setValues(this.activeOperation.getValues())) {
+        const res = this.activeOperation.execute();
+        console.log(res);
+        this.jqResult.html(res);
+      } else {
+        console.log('wrong value');
+        this.jqResult.html('wrong value');
+      }
+    });
+       
+    this.changeOpearion(this.app.OperationType.Plus)
   }
 }
-
-window.App = new Select();

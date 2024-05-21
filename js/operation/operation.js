@@ -8,6 +8,10 @@ function Operation() {
         return this._title;
     }
 
+    this.init = () => {
+        
+    }
+
     this.getId = () => {
         return this._id;
     }
