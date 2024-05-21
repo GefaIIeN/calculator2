@@ -12,7 +12,6 @@ function OperationBoolean() {
 
     this._checkValues = (values) => {
         const value0 = values[0]
-        console.log (value0)
         if (value0 != '') {
             if (value0 === 'false') {
                 this._values[0] = false;
@@ -35,7 +34,10 @@ function OperationBoolean() {
 
 
     this.execute = () => {
+        if (this._values.length == 1) {
             return !(this._values[0])
     }
-}
+    return null;
+    }  
+}    
 

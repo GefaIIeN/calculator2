@@ -8,9 +8,12 @@ function OperationPlusArray() {
     this.getValues = () => {
         let values = [];
         let values2 = [];
-
-        this._values = $("#value_3").split(",").val();
-        this._values2 = $("#value_4").split(",").val();
+        let arr1 = []
+        let arr2 = []
+        arr1 = $("#value_3")
+        arr2 = $("#value_4")
+        this._values = arr1.split(",");
+        this._values2 = arr2.split(",");
 
         this._values.filter(element => {
             return parseInt(element)
