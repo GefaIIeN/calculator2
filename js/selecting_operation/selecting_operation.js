@@ -102,8 +102,8 @@ function Select(app) {
       if (this.activeOperation.setValues(this.activeOperation.getValues())) {
         const res = this.activeOperation.execute();
         console.log(this.activeOperation.getValues());
-        console.log(res);
-        this.jqResult.html(res);
+        console.log(''+res);
+        this.jqResult.text(''+res);
       } else {
         console.log('wrong value');
         console.log(this.activeOperation.getValues());
