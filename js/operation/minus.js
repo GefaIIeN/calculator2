@@ -6,8 +6,8 @@ function OperationMinus() {
 
     this.getValues = () => {
         let values = [];
-        values[0] = $("#value_1").val();
-        values[1] = $("#value_2").val();
+        values[0] = $("#NumberValue_1").val();
+        values[1] = $("#NumberValue_2").val();
         return values;
     }
 

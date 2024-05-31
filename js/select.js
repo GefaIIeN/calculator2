@@ -13,8 +13,11 @@ function Select(app) {
   this.jqResetBtn = $('#resetBtn');
   this.jqExecuteBtn = $("#executeBtn");
   this.jqResult = $('#result');
-  this.jqValue_1 = $('#value_1');
-  this.jqValue_2 = $('#value_2');
+  this.jqNumberValue_1 = $('#NumberValue_1');
+  this.jqNumberValue_2 = $('#NumberValue_2');
+  this.jqStringValue_1 = $('#StringValue_1');
+  this.jqStringValue_2 = $('#StringValue_2');
+  this.jqBooleanValue_1 = $('#BooleanValue_1');
   this.jqNumberFields = $('#numberFields');
   this.jqStringFields = $('#stringFields');
   this.jqBooleanFields = $('#booleanFields');
@@ -32,8 +35,11 @@ function Select(app) {
 
   this.reset = () => {
     this.jqResult.val("");
-    this.jqValue_1.val("");
-    this.jqValue_2.val("");
+    this.jqNumberValue_1.val("");
+    this.jqNumberValue_2.val("");
+    this.jqStringValue_1.val("");
+    this.jqStringValue_2.val("");
+    this.jqBooleanValue_1.val("");
   }
 
   this.changeOpearion = (newSelectedOperation) => {

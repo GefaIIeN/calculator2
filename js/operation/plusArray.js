@@ -9,10 +9,10 @@ function OperationPlusArray() {
     this.getValues = () => {
 
         let values = [];
-        let arr1 = $("#value_3").val();
+        let arr1 = $("#StringValue_1").val();
         values = arr1.split(",");
         let values2 = [];
-        let arr2 = $("#value_4").val();
+        let arr2 = $("#StringValue_2").val();
         values2 = arr2.split(",");
 
         return {

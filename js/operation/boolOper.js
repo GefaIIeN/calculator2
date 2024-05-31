@@ -6,7 +6,7 @@ function OperationBoolean() {
 
     this.getValues = () => {
         let values = [];
-        const value = $("#value_5").val().toLowerCase();
+        const value = $("#BooleanValue_1").val().toLowerCase();
         if (''+value == 'false') {
             values.push(false);
         } else if (''+value == 'true') {

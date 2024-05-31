@@ -6,8 +6,8 @@ function OperationPlusString() {
 
     this.getValues = () => {
         let values = [];
-        values[0] = $("#value_3").val();
-        values[1] = $("#value_4").val();
+        values[0] = $("#StringValue_1").val();
+        values[1] = $("#StringValue_2").val();
         return values;
     }
 
