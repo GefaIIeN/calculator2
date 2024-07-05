@@ -23,21 +23,28 @@ function OperationPlusArray() {
 
 
     this._checkValues = () => {
-        
-        const value0 = this.getValues().values;
-        const value1 = this.getValues().values2;
+        const allValues = this.getValues();
+        const value0 = allValues.values;
+        const value1 = allValues.values2;
 
         console.log(value0, value1)
 
+        const checkValue = (mass) => {
+            const numValue = mass.map(el=>parseInt(el))
+            if (numValue.includes(NaN)) {
+                return false;
+             }
+             return true;
+
+        }
+
         if ((value0[0] != '') && (value1[0] != '')) {
-                const numValue = this.getValues().values.map(el=>parseInt(el))
-                if (numValue.includes(NaN)) {
+                if (checkValue(value0)) {
                     return false;
                 }
-
-                const numValue1 = this.getValues().values2.map(el=>parseInt(el))
-                if (numValue1.includes(NaN)) {
+                if (checkValue(value1)) {
                     return false;
+                }
             }
             return true;
         }
