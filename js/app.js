@@ -6,7 +6,8 @@ function Application() {
       Div: 'Деление',
       SumString: 'Сложение строк',
       SumArray: 'Сложение массивов',
-      Rejection: 'Отрицание значения'
+      Rejection: 'Отрицание значения',
+      Average: 'Среднее арифметическое'
   };
 
   this.select = new Select(this);

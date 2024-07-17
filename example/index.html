@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>КАЛЬКУЛЯТОР</title>
+   <link rel="stylesheet" href="index.css" />
+   <script src="jquery-3.7.1.min.js"></script>
+</head>
+   <body>
+      <h1>КАЛЬКУЛЯТОР</h1>
+
+      <div class="group">
+         <h2>ВЫБЕРИТЕ НУЖНУЮ ОПЕРАЦИЮ</h2>
+         <div id="operations">
+            <button id="average" class="operation">Среднее арифметичесое</button>
+            <button id="imagePlus" class="operation">Сложение чисел</button>
+
+         </div>
+         
+         <div class="groupCurrentOper">
+            <div>ВЫБРАННАЯ ОПЕРАЦИЯ:</div> <div id="currentOper"></div>
+         </div>
+      </div>
+
+            <div id="multiFields">
+                  <div class="fieldLabel"></div>
+                    <div>
+                        <input id="fieldValue">
+                    </div>
+
+                    <div class = "btnsGroup">
+                        <button class="removeField">
+                            Удалить поле
+                        </button>   
+                    
+                        <button class="addField">
+                            Добавить поле
+                        </button>
+                    </div>
+            </div>
+
+            <div id="imageFields" class="hidefields">
+                <div class="field">
+                    <div>Изображение 1:</div>
+                    <div>
+                       <input type="file" id="imageValue_1"/>
+                       <img />
+                    </div>
+                 </div>
+                 <div  class="field">
+                    <div>Изображение 2:</div>
+                    <div>
+                       <input type="file" id="imageValue_2"/>
+                       <img />
+                    </div>
+                 </div>
+            </div>
+
+         </div>
+      </div>
+
+      <div id="group">
+         <div>Результат:<span id="result"></span></div>
+         <div class="btnsGroup">
+            <button id="executeBtn">Вычислить результат</button>
+            <button id="resetBtn">Очистить</button>   
+         </div>         
+      </div>      
+   </div>
+    
+    <script src="app.js"></script>
+    <script src="select.js"></script>
+
+    <script src="average.js"></script>
+    <script src="image.js"></script>
+
+    <script src="index.css"></script>
+
+   
+ </body>
+</html>

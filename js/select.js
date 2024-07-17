@@ -9,6 +9,7 @@ function Select(app) {
   this.operations[this.app.OperationType.SumString] = new OperationPlusString();
   this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
   this.operations[this.app.OperationType.Rejection] = new OperationBoolean();
+  this.operations[this.app.OperationType.Average] = new OperationAverage();
 
   this.jqResetBtn = $('#resetBtn');
   this.jqExecuteBtn = $("#executeBtn");
@@ -21,6 +22,7 @@ function Select(app) {
   this.jqNumberFields = $('#numberFields');
   this.jqStringFields = $('#stringFields');
   this.jqBooleanFields = $('#booleanFields');
+  this.jqAverageFields = $('#averageFields');
   
   this.jqPlus = $('#plus');
   this.jqMinus = $('#minus'); 
@@ -29,6 +31,7 @@ function Select(app) {
   this.jqPlusString = $('#plusString');
   this.jqPlusArray = $('#plusArray');
   this.jqBoolOper = $('#boolOper');
+  this.jqAverage = $('#average');
 
 
   this.activeOperation = null;
@@ -42,7 +45,7 @@ function Select(app) {
     this.jqBooleanValue_1.val("");
   }
 
-  this.changeOpearion = (newSelectedOperation) => {
+  this.changeOperation = (newSelectedOperation) => {
       this.selectedOperation = newSelectedOperation;
       $("#currentOper").html(this.selectedOperation);
 
@@ -53,6 +56,7 @@ function Select(app) {
         this.jqNumberFields.show();
         this.jqStringFields.hide();
         this.jqBooleanFields.hide();
+        this.jqAverageFields.hide();
       }
 
       if ((this.selectedOperation == this.app.OperationType.SumString) ||
@@ -60,12 +64,21 @@ function Select(app) {
         this.jqNumberFields.hide();
         this.jqStringFields.show();
         this.jqBooleanFields.hide();
+        this.jqAverageFields.hide();
       }
 
       if (this.selectedOperation == this.app.OperationType.Rejection) {
         this.jqNumberFields.hide();
         this.jqStringFields.hide();
         this.jqBooleanFields.show();
+        this.jqAverageFields.hide();
+      }
+
+      if (this.selectedOperation == this.app.OperationType.Average) {
+        this.jqNumberFields.hide();
+        this.jqStringFields.hide();
+        this.jqBooleanFields.hide();
+        this.jqAverageFields.show();
       }
 
       this.activeOperation = this.operations[this.selectedOperation];
@@ -82,25 +95,28 @@ function Select(app) {
     });
 
     this.jqPlus.click(() => {
-      this.changeOpearion(this.app.OperationType.Plus)
+      this.changeOperation(this.app.OperationType.Plus)
     });
     this.jqMinus.click(() => {
-      this.changeOpearion(this.app.OperationType.Minus)
+      this.changeOperation(this.app.OperationType.Minus)
     });
     this.jqMultiply.click(() => {
-      this.changeOpearion(this.app.OperationType.Mult)
+      this.changeOperation(this.app.OperationType.Mult)
     });
     this.jqDivide.click(() => {
-      this.changeOpearion(this.app.OperationType.Div)
+      this.changeOperation(this.app.OperationType.Div)
     });
     this.jqPlusString.click(() => {
-      this.changeOpearion(this.app.OperationType.SumString)
+      this.changeOperation(this.app.OperationType.SumString)
     });
     this.jqPlusArray.click(() => {
-      this.changeOpearion(this.app.OperationType.SumArray)
+      this.changeOperation(this.app.OperationType.SumArray)
     });
     this.jqBoolOper.click(() => {
-      this.changeOpearion(this.app.OperationType.Rejection)
+      this.changeOperation(this.app.OperationType.Rejection)
+    });
+    this.jqAverage.click(() => {
+      this.changeOperation(this.app.OperationType.Average)
     });
 
     this.jqExecuteBtn.click(() => {
@@ -118,6 +134,6 @@ function Select(app) {
       }
     });
        
-    this.changeOpearion(this.app.OperationType.Plus)
+    this.changeOperation(this.app.OperationType.Plus)
   }
 }
