@@ -7,7 +7,7 @@ function Select(app) {
   this.operations[this.app.OperationType.Mult] = new OperationMultiply();
   this.operations[this.app.OperationType.Div] = new OperationDivide();
   this.operations[this.app.OperationType.SumString] = new OperationPlusString();
-  this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
+  //this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
   this.operations[this.app.OperationType.Rejection] = new OperationBoolean();
   this.operations[this.app.OperationType.Average] = new OperationAverage();
 
@@ -24,6 +24,9 @@ function Select(app) {
   this.jqBooleanFields = $('#booleanFields');
   this.jqAverageFields = $('#averageFields');
   
+  this.jqMultiFields = $('#multiFields');
+  this.jqMultiFieldBlank = this.jqMultiFields.find('.numberBlankField');
+
   this.jqPlus = $('#plus');
   this.jqMinus = $('#minus'); 
   this.jqMultiply = $('#multiply');
@@ -89,6 +92,29 @@ function Select(app) {
 
   this.init = () => {
     console.log('init');
+
+    this.jqMultiFields.find('.addField').click(()=>{
+      const allFields = this.jqMultiFields.children('div').filter((i, elem) => {
+        return $(elem).attr('class') != 'numberBlankField';
+      }).length;
+
+      const jqNewField = this.jqMultiFieldBlank.clone();
+      const newField = jqNewField.get(0);
+      this.jqMultiFields.append(newField);
+      /*const jqNewField = $('<div>', {
+        id: '',
+        class: '',
+        ...
+      })*/
+
+      const idField = 'numberField_'+allFields;
+      newField.id = idField;
+      jqNewField.removeClass('numberBlankField');
+      jqNewField.children('.removeField').click(() => {
+        jqNewField.remove();
+      });
+
+    });
 
     this.jqResetBtn.click(() => {
       this.reset();
