@@ -7,7 +7,7 @@ function Select(app) {
   this.operations[this.app.OperationType.Mult] = new OperationMultiply();
   this.operations[this.app.OperationType.Div] = new OperationDivide();
   this.operations[this.app.OperationType.SumString] = new OperationPlusString();
-  //this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
+  this.operations[this.app.OperationType.SumArray] = new OperationPlusArray();
   this.operations[this.app.OperationType.Rejection] = new OperationBoolean();
   this.operations[this.app.OperationType.Average] = new OperationAverage();
 

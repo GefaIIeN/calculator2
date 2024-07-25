@@ -35,11 +35,28 @@ function Select(app) {
 
         this.activeOperation = this.operations[this.selectedOperation];
         this.activeOperation.init();
-    }
+    };
 
   
     this.init = () => {
       console.log('init');
+
+      var index = 0;
+
+      $('.addField').click(function(){
+        let newInput = $(`#fieldValue`).eq(0).clone()
+        newInput.id = `fieldValue_${index++}`
+        $('.fieldValue').append(newInput);
+        return false;
+    });
+    
+    $('.removeField').click(function() {
+        var allInputs = document.getElementById('#multiFields').querySelectorAll('input[type="text"]');
+        totalInputs = allInputs.length;
+        if (totalInputs > 1) {
+            allInputs[totalInputs - 1].parentNode.removeChild(allInputs[totalInputs - 1]);
+        }
+    });
 
       this.jqAverage.click(() => {
         this.changeOperation(this.app.OperationType.Average)

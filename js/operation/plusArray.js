@@ -19,7 +19,7 @@ function OperationPlusArray() {
             values: values, 
             values2: values2
         }
-    }
+    };
 
 
     this._checkValues = () => {
@@ -30,25 +30,26 @@ function OperationPlusArray() {
         console.log(value0, value1)
 
         const checkValue = (mass) => {
-            const numValue = mass.map(el=>parseInt(el))
+            const numValue = mass.map(el=>parseInt(el));
+
             if (numValue.includes(NaN)) {
-                return false;
+                return true;
              }
-             return true;
-
+             return false;
         }
 
-        if ((value0[0] != '') && (value1[0] != '')) {
-                if (checkValue(value0)) {
-                    return false;
-                }
-                if (checkValue(value1)) {
-                    return false;
-                }
+            if ((value0[0] != '') && (value1[0] != '')) {
+                    if (checkValue(value0)) {
+                        console.log(checkValue(value0))
+                        return false;
+                    }
+                    if (checkValue(value1)) {
+                        console.log(checkValue(value1))
+                        return false;
+                    }
+                return true;
             }
-            return true;
-        }
-        return false;
+            return false;
     }
 
     this.setValues = () => {
@@ -58,19 +59,23 @@ function OperationPlusArray() {
             return true;
         }
         return false;
-    }
+    };
 
     this.execute = () => {
 
-            this.sum = [];
+            let sum = [];
             const value0 = this._values;
             const value1 = this._values2;
+            console.log(value0)
+            console.log(value1)
 
-            for (let i = 0; i < Math.max(value0.length, value1.length); i++) {
-                this.sum.push ((value0[i] || 0) + (value1[i] || 0)); 
-            };
-            return this.sum;
-        }
-        return null;
-    
+        
+            const totalLength =  Math.max(value0.length, value1.length);
+            console.log(totalLength)
+
+            for (let i = 0; i < totalLength; i++) {
+                sum[i] = (value0[i] || 0) + (value1[i] || 0);
+            }
+        return sum;
+    }
 }
