@@ -15,7 +15,6 @@ function OperationAverage() {
 
     this._checkValues = () => {
         const values = this.getValues();
-        console.log (values);
 
         if (values.includes(NaN)) {
             return false;
@@ -36,12 +35,9 @@ function OperationAverage() {
 
 
     this.execute = () => {
-        console.log (this._values);
         if (inputCounter > 1) {
             const sum = this._values.reduce((acc, number) => acc + number, 0);
             const length = inputCounter;
-            console.log (sum);
-            console.log (length);
             return sum / length;
         }
         return null;
