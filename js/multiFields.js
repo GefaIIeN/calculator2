@@ -1,7 +1,8 @@
+var inputCounter = 1;
+
 $(() => {
     var multiFields = $('#multiFields');
     var multiFieldBlank = multiFields.find('.numberBlankField');
-    var inputCounter = 1;
     values = [];
     
 

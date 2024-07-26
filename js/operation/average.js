@@ -7,29 +7,26 @@ function OperationAverage() {
 
     this.getValues = () => {
         let values = [];
-        values[0] = $("#NumberValue_1").val();
-        values[1] = $("#NumberValue_2").val();
-        return values;
+        let numValues = [];
+        values = [...$('#multiFields').find('input')].map(v => v.value);
+        numValues = values.map(el=>parseInt(el));
+      return numValues
     }
 
-    this._checkValues = (values) => {
-        const value0 = ''+values[0]
-        const value1 = ''+values[1]
-        if ((value0 != '') && (value1 != '')) {
-            const numValue0 = parseInt(value0);
-            if (!numValue0) {
-                return false;
-            }
-            const numValue1 = parseInt(value1);
-            if (!numValue1) {
-                return false;
-            }
-            return true;
+    this._checkValues = () => {
+        const values = this.getValues();
+        console.log (values);
+
+        if (values.includes(NaN)) {
+            return false;
         }
-        return false;
+      return true;
     }
+    
 
-    this.setValues = (values) => {
+
+    this.setValues = () => {
+        const values = this.getValues();
         if (this._checkValues(values)) {
             this._values = values;
             return true;
@@ -37,9 +34,15 @@ function OperationAverage() {
         return false;
     }
 
+
     this.execute = () => {
-        if (this._values.length == 2) {
-            return parseInt(this._values[0]) + parseInt(this._values[1]);
+        console.log (this._values);
+        if (inputCounter > 1) {
+            const sum = this._values.reduce((acc, number) => acc + number, 0);
+            const length = inputCounter;
+            console.log (sum);
+            console.log (length);
+            return sum / length;
         }
         return null;
     }

@@ -41,6 +41,7 @@ function Select(app) {
 
   this.reset = () => {
     $('.groupSpecClass').find("input").val('');
+    this.jqResult.text('')
   }
 
   this.changeOperation = (newSelectedOperation) => {
