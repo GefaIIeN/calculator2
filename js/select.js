@@ -22,7 +22,7 @@ function Select(app) {
   this.jqNumberFields = $('#numberFields');
   this.jqStringFields = $('#stringFields');
   this.jqBooleanFields = $('#booleanFields');
-  this.jqAverageFields = $('#averageFields');
+
   
   this.jqMultiFields = $('#multiFields');
   this.jqMultiFieldBlank = this.jqMultiFields.find('.numberBlankField');
@@ -54,7 +54,7 @@ function Select(app) {
         this.jqNumberFields.show();
         this.jqStringFields.hide();
         this.jqBooleanFields.hide();
-        this.jqAverageFields.hide();
+        this.jqMultiFields.hide();
       }
 
       if ((this.selectedOperation == this.app.OperationType.SumString) ||
@@ -62,21 +62,21 @@ function Select(app) {
         this.jqNumberFields.hide();
         this.jqStringFields.show();
         this.jqBooleanFields.hide();
-        this.jqAverageFields.hide();
+        this.jqMultiFields.hide();
       }
 
       if (this.selectedOperation == this.app.OperationType.Rejection) {
         this.jqNumberFields.hide();
         this.jqStringFields.hide();
         this.jqBooleanFields.show();
-        this.jqAverageFields.hide();
+        this.jqMultiFields.hide();
       }
 
       if (this.selectedOperation == this.app.OperationType.Average) {
         this.jqNumberFields.hide();
         this.jqStringFields.hide();
         this.jqBooleanFields.hide();
-        this.jqAverageFields.show();
+        this.jqMultiFields.show();
       }
 
       this.activeOperation = this.operations[this.selectedOperation];
