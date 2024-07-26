@@ -40,12 +40,7 @@ function Select(app) {
   this.activeOperation = null;
 
   this.reset = () => {
-    this.jqResult.val("");
-    this.jqNumberValue_1.val("");
-    this.jqNumberValue_2.val("");
-    this.jqStringValue_1.val("");
-    this.jqStringValue_2.val("");
-    this.jqBooleanValue_1.val("");
+    $('.groupSpecClass').find("input").val('');
   }
 
   this.changeOperation = (newSelectedOperation) => {
@@ -93,28 +88,7 @@ function Select(app) {
   this.init = () => {
     console.log('init');
 
-    this.jqMultiFields.find('.addField').click(()=>{
-      const allFields = this.jqMultiFields.children('div').filter((i, elem) => {
-        return $(elem).attr('class') != 'numberBlankField';
-      }).length;
-
-      const jqNewField = this.jqMultiFieldBlank.clone();
-      const newField = jqNewField.get(0);
-      this.jqMultiFields.append(newField);
-      /*const jqNewField = $('<div>', {
-        id: '',
-        class: '',
-        ...
-      })*/
-
-      const idField = 'numberField_'+allFields;
-      newField.id = idField;
-      jqNewField.removeClass('numberBlankField');
-      jqNewField.children('.removeField').click(() => {
-        jqNewField.remove();
-      });
-
-    });
+    
 
     this.jqResetBtn.click(() => {
       this.reset();
